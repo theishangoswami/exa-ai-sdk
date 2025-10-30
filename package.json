@@ -1,5 +1,5 @@
 {
-  "name": "@exa/ai-sdk",
+  "name": "exa-ai-sdk",
   "version": "1.0.0",
   "description": "Exa web search tool for Vercel AI SDK",
   "main": "./dist/index.js",
@@ -26,6 +26,7 @@
   ],
   "author": "Exa",
   "license": "MIT",
+  "homepage": "https://exa.ai",
   "peerDependencies": {
     "ai": "^4.0.0"
   },

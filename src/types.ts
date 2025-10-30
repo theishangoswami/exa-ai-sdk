@@ -51,7 +51,7 @@ export interface ContentsOptions {
  */
 export interface ExaSearchConfig {
   /**
-   * Your Exa API key. Get one at https://exa.ai
+   * Your Exa API key. Get one at https://dashboard.exa.ai/api-keys
    * Defaults to process.env.EXA_API_KEY
    */
   apiKey?: string;
