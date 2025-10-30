@@ -28,6 +28,8 @@ const { text } = await generateText({
 console.log(text);
 ```
 
+Get your API key from the [Exa Dashboard](https://dashboard.exa.ai/api-keys).
+
 **Defaults when you use `webSearch()`:**
 - Type: `auto` (best search)
 - Results: `10`
