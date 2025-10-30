@@ -2,6 +2,8 @@
 
 Exa web search tool for Vercel AI SDK. Add Exa web search tool to your AI applications in just a few lines of code. Giving your AI applications web search capabilites.
 
+The AI decides when to search, sends your question to Exa, and uses the web results to answer you.
+
 ## Installation
 
 ```bash
@@ -43,83 +45,29 @@ EXA_API_KEY=your-api-key-here
 
 That's it! The package reads it automatically.
 
-## Examples
+## Example
 
-### Custom Number of Results
-
-```typescript
-const { text } = await generateText({
-  model: openai('gpt-4o-mini'),
-  prompt: 'What are the best restaurants in New York?',
-  tools: {
-    webSearch: webSearch({ 
-      numResults: 5 
-    }),
-  },
-});
-```
-
-### Search Specific Websites
+Here's a full-featured example combining the most useful search settings:
 
 ```typescript
 const { text } = await generateText({
   model: openai('gpt-4o-mini'),
-  prompt: 'Find TypeScript tutorials',
+  prompt: 'Find the top AI companies in Europe founded after 2018',
   tools: {
     webSearch: webSearch({
-      includeDomains: ["dev.to", "medium.com"],
-    }),
-  },
-});
-```
-
-### Search by Date Range
-
-```typescript
-const { text } = await generateText({
-  model: openai('gpt-4o-mini'),
-  prompt: 'What happened in AI this week?',
-  tools: {
-    webSearch: webSearch({
-      startPublishedDate: "2025-10-20T00:00:00.000Z",
-      endPublishedDate: "2025-10-27T23:59:59.999Z",
-    }),
-  },
-});
-```
-
-### Search with Summary
-
-```typescript
-const { text } = await generateText({
-  model: openai('gpt-4o-mini'),
-  prompt: 'Find research papers about neural networks',
-  tools: {
-    webSearch: webSearch({
-      type: "neural",
-      category: "research paper",
+      type: "auto",                           // intelligent hybrid search
+      numResults: 6,                          // return up to 6 results
+      category: "company",                    // focus on companies
       contents: {
-        summary: true,
+        text: { maxCharacters: 1000 },        // get up to 1000 chars per result
+        livecrawl: "preferred",               // always get fresh content if possible
+        summary: true,                        // return an AI-generated summary for each result
       },
     }),
   },
 });
-```
 
-### Always Get Fresh Content
-
-```typescript
-const { text } = await generateText({
-  model: openai('gpt-4o-mini'),
-  prompt: 'What are the latest AI news?',
-  tools: {
-    webSearch: webSearch({
-      contents: {
-        livecrawl: "preferred",
-      },
-    }),
-  },
-});
+console.log(text);
 ```
 
 ## All Options
@@ -184,15 +132,6 @@ const config: ExaSearchConfig = {
 
 const search = webSearch(config);
 ```
-
-## How It Works
-
-When your AI needs information, it automatically:
-1. Calls the web search tool with a query
-2. Gets results from Exa's search API
-3. Uses those results to answer your question
-
-You don't do anything—the AI decides when to search!
 
 ## Links
 
