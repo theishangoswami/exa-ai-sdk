@@ -1,0 +1,40 @@
+{
+  "name": "@exa/ai-sdk",
+  "version": "1.0.0",
+  "description": "Exa web search tool for Vercel AI SDK",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "exa",
+    "search",
+    "ai-sdk",
+    "vercel",
+    "web-search",
+    "ai",
+    "tools"
+  ],
+  "author": "Exa",
+  "license": "MIT",
+  "peerDependencies": {
+    "ai": "^4.0.0"
+  },
+  "dependencies": {
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
+
