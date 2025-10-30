@@ -18,7 +18,7 @@ import { webSearch } from "exa-ai-sdk";
 import { openai } from "@ai-sdk/openai";
 
 const { text } = await generateText({
-  model: openai('gpt-4o-mini'),
+  model: openai('gpt-5'),
   prompt: 'What happened in San Francisco last week?',
   tools: {
     webSearch: webSearch(),
@@ -53,7 +53,7 @@ Here's a full-featured example combining the most useful search settings:
 
 ```typescript
 const { text } = await generateText({
-  model: openai('gpt-4o-mini'),
+  model: openai('gpt-5'),
   prompt: 'Find the top AI companies in Europe founded after 2018',
   tools: {
     webSearch: webSearch({
