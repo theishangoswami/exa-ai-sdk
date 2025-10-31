@@ -28,7 +28,7 @@
   "license": "MIT",
   "homepage": "https://exa.ai",
   "peerDependencies": {
-    "ai": "^4.0.0"
+    "ai": "^5.0.83"
   },
   "dependencies": {
     "zod": "^3.22.0"
@@ -38,4 +38,3 @@
     "typescript": "^5.0.0"
   }
 }
-

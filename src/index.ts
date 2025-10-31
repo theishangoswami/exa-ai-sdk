@@ -33,7 +33,7 @@ export function webSearch(config: ExaSearchConfig = {}) {
 
   return tool({
     description: "Search the web for code docs, current information, news, articles, and content. Use this when you need up-to-date information or facts from the internet. Performs real-time web searches and can scrape content from specific URLs.",
-    parameters: z.object({
+    inputSchema: z.object({
       query: z.string().min(1).max(500).describe("The web search query - be specific and clear about what you're looking for"),
     }),
     execute: async ({ query }) => {
