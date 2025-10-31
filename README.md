@@ -13,16 +13,18 @@ npm install exa-ai-sdk
 ## Quick Start
 
 ```typescript
-import { generateText } from "ai";
+import { generateText, stepCountIs } from "ai";
 import { webSearch } from "exa-ai-sdk";
 import { openai } from "@ai-sdk/openai";
 
 const { text } = await generateText({
-  model: openai('gpt-5'),
-  prompt: 'What happened in San Francisco last week?',
+  model: openai('gpt-5-nano'),
+  prompt: 'Tell me the latest developments in AI',
+  system: "Only use web search once per turn. Answer based on the information you have.",
   tools: {
     webSearch: webSearch(),
   },
+  stopWhen: stepCountIs(3),
 });
 
 console.log(text);
@@ -53,7 +55,7 @@ Here's a full-featured example combining the most useful search settings:
 
 ```typescript
 const { text } = await generateText({
-  model: openai('gpt-5'),
+  model: openai('gpt-5-nano'),
   prompt: 'Find the top AI companies in Europe founded after 2018',
   tools: {
     webSearch: webSearch({
@@ -67,6 +69,7 @@ const { text } = await generateText({
       },
     }),
   },
+  stopWhen: stepCountIs(5),
 });
 
 console.log(text);
