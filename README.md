@@ -7,14 +7,14 @@ The AI decides when to search, sends your question to Exa, and uses the web resu
 ## Installation
 
 ```bash
-npm install exa-ai-sdk
+npm install @exalabs/ai-sdk
 ```
 
 ## Quick Start
 
 ```typescript
 import { generateText, stepCountIs } from "ai";
-import { webSearch } from "exa-ai-sdk";
+import { webSearch } from "@exalabs/ai-sdk";
 import { openai } from "@ai-sdk/openai";
 
 const { text } = await generateText({
@@ -128,7 +128,7 @@ webSearch({
 Full TypeScript types included:
 
 ```typescript
-import { webSearch, ExaSearchConfig, ExaSearchResult } from "exa-ai-sdk";
+import { webSearch, ExaSearchConfig, ExaSearchResult } from "@exalabs/ai-sdk";
 
 const config: ExaSearchConfig = {
   numResults: 10,

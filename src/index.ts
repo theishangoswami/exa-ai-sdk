@@ -11,7 +11,7 @@ import type { ExaSearchConfig, ExaApiResponse, ExaSearchResult } from "./types";
  * @example
  * ```ts
  * import { generateText } from "ai";
- * import { webSearch } from "exa-ai-sdk";
+ * import { webSearch } from "@exalabs/ai-sdk";
  * import { openai } from "@ai-sdk/openai";
  * 
  * // Just set EXA_API_KEY in .env, then:
