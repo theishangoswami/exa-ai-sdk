@@ -1,6 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
-import type { ExaSearchConfig, ExaApiResponse, ExaSearchResult } from "./types";
+import type { ExaSearchConfig } from "./types";
 
 /**
  * Creates a web search tool powered by Exa for use with Vercel AI SDK
@@ -85,7 +85,7 @@ export function webSearch(config: ExaSearchConfig = {}) {
       const contents = searchOptions.contents || {};
       requestBody.contents = {};
 
-      // Handle text content (default: 1000 characters)
+      // Handle text content
       if (contents.text !== undefined) {
         if (typeof contents.text === "boolean") {
           requestBody.contents.text = contents.text;
@@ -132,14 +132,9 @@ export function webSearch(config: ExaSearchConfig = {}) {
           throw new Error(`Exa API error: ${response.status} - ${errorText}`);
         }
 
-        const data = await response.json() as ExaApiResponse;
-
-        // Return results directly - they already match our ExaSearchResult type
-        return {
-          results: data.results,
-          count: data.results.length,
-          requestId: data.requestId,
-        };
+        // Return the full API response for maximum flexibility and future-proofing
+        const data = await response.json();
+        return data;
       } catch (error) {
         if (error instanceof Error) {
           throw new Error(`Failed to search with Exa: ${error.message}`);

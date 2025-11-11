@@ -1,8 +1,17 @@
 # Exa AI SDK
 
-Exa web search tool for Vercel AI SDK. Add Exa web search tool to your AI applications in just a few lines of code. Giving your AI applications web search capabilites.
+Exa is a Websearch API. Add Exa websearch tool to your LLMs in just a few lines of code. Giving your AI apps websearch capabilites. Works with AI SDK by Vercel.
 
-The AI decides when to search, sends your question to Exa, and uses the web results to answer you.
+## Table of Contents
+
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Setup](#setup)
+- [Example](#example)
+- [All Options](#all-options)
+- [TypeScript Support](#typescript-support)
+- [Links](#links)
+- [License](#license)
 
 ## Installation
 
@@ -35,7 +44,7 @@ Get your API key from the [Exa Dashboard](https://dashboard.exa.ai/api-keys).
 **Defaults when you use `webSearch()`:**
 - Type: `auto` (best search)
 - Results: `10`
-- Text: `1000 characters per result`
+- Text: `3000 characters per result`
 - Livecrawl: `fallback` (fresh content when needed)
 
 ## Setup
@@ -140,6 +149,8 @@ const search = webSearch(config);
 
 ## Links
 
+- [GitHub Repository](https://github.com/exa-labs/ai-sdk) - View source code of this npm package
+- [Try npm Package](https://www.npmjs.com/package/@exalabs/ai-sdk) - View on npm
 - [API Dashboard](https://dashboard.exa.ai) - Try Exa API on the dashboard
 - [Get your API Keys](https://dashboard.exa.ai/api-keys) - Get your API keys
 - [Documentation](https://docs.exa.ai) - Exa API documentation

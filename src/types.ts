@@ -161,10 +161,35 @@ export interface ExaSearchResult {
 
 /**
  * API response from Exa search endpoint
+ * This includes the full response with all metadata for maximum flexibility
  */
 export interface ExaApiResponse {
+  /** Unique request ID */
   requestId?: string;
+  /** The search type that was ultimately used */
   resolvedSearchType?: "neural" | "keyword" | "fast" | "deep";
+  /** Array of search results */
   results: ExaSearchResult[];
+  /** Detailed request tags and metadata */
+  requestTags?: Record<string, any>;
+  /** Filters that were applied to the search */
+  effectiveFilters?: {
+    includeDomains?: string[];
+    excludeDomains?: string[];
+    includeUrls?: string[];
+    excludeUrls?: string[];
+    includeText?: string[];
+    excludeText?: string[];
+  };
+  /** Total search time in milliseconds */
+  searchTime?: number;
+  /** Cost breakdown for the request */
+  costDollars?: {
+    total?: number;
+    search?: Record<string, number>;
+    contents?: Record<string, number>;
+  };
+  /** Any additional fields from the API */
+  [key: string]: any;
 }
 
