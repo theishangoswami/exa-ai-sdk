@@ -93,8 +93,8 @@ export function webSearch(config: ExaSearchConfig = {}) {
           requestBody.contents.text = contents.text;
         }
       } else {
-        // Default: get text with 1000 characters
-        requestBody.contents.text = { maxCharacters: 1000 };
+        // Default: get text with 3000 characters
+        requestBody.contents.text = { maxCharacters: 3000 };
       }
 
       // Add other content options
