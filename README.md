@@ -151,6 +151,7 @@ const search = webSearch(config);
 
 - [GitHub Repository](https://github.com/exa-labs/ai-sdk) - View source code of this npm package
 - [Try npm Package](https://www.npmjs.com/package/@exalabs/ai-sdk) - View on npm
+- [Vercel AI SDK Cookbook](https://ai-sdk.dev/cookbook/node/web-search-agent#exa) - Web search agent example featuring Exa
 - [API Dashboard](https://dashboard.exa.ai) - Try Exa API on the dashboard
 - [Get your API Keys](https://dashboard.exa.ai/api-keys) - Get your API keys
 - [Documentation](https://docs.exa.ai) - Exa API documentation
