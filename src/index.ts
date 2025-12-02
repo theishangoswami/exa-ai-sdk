@@ -98,6 +98,9 @@ export function webSearch(config: ExaSearchConfig = {}) {
       }
 
       // Add other content options
+      if (contents.highlights !== undefined) {
+        requestBody.contents.highlights = contents.highlights;
+      }
       if (contents.summary !== undefined) {
         requestBody.contents.summary = contents.summary;
       }
@@ -151,6 +154,7 @@ export type {
   ExaSearchResult,
   ContentsOptions,
   TextOptions,
+  HighlightsOptions,
   SummaryOptions,
   ExtrasOptions,
 } from "./types";

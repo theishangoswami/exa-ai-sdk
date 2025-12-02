@@ -17,6 +17,18 @@ export interface SummaryOptions {
 }
 
 /**
+ * Highlights options - text snippets the LLM identifies as most relevant from each page
+ */
+export interface HighlightsOptions {
+  /** Number of sentences to return for each snippet */
+  numSentences?: number;
+  /** Number of snippets to return for each result */
+  highlightsPerUrl?: number;
+  /** Custom query to direct the LLM's selection of highlights */
+  query?: string;
+}
+
+/**
  * Extras options
  */
 export interface ExtrasOptions {
@@ -32,6 +44,8 @@ export interface ExtrasOptions {
 export interface ContentsOptions {
   /** Get page text content. Pass true or an object with options (default: {maxCharacters: 1000}) */
   text?: boolean | TextOptions;
+  /** Get text snippets the LLM identifies as most relevant from each page */
+  highlights?: boolean | HighlightsOptions;
   /** Get AI-generated summary */
   summary?: boolean | SummaryOptions;
   /** Livecrawl mode (default: "fallback"): "never", "fallback", "always", "preferred" */
@@ -148,6 +162,10 @@ export interface ExaSearchResult {
   favicon?: string;
   /** Full text content of the page */
   text?: string;
+  /** Array of highlights extracted from the search result content */
+  highlights?: string[];
+  /** Array of cosine similarity scores for each highlight */
+  highlightScores?: number[];
   /** AI-generated summary */
   summary?: string;
   /** Array of subpages */
