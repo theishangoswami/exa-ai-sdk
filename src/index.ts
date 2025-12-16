@@ -126,6 +126,7 @@ export function webSearch(config: ExaSearchConfig = {}) {
           headers: {
             "Content-Type": "application/json",
             "x-api-key": apiKey,
+            "x-exa-integration": "vercel-ai-sdk",
           },
           body: JSON.stringify(requestBody),
         });
